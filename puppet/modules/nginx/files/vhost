@@ -1,6 +1,12 @@
 server {
     listen      80;
-    server_name localhost;
+    server_name catchlater.com;
+    root /var/catchlater/current/public/
+
+    passenger_enabled on;
+    passenger_use_global_queue on;
+    passenger_pool_idle_time 900;
+    passenger_max_requests 10000;
 
     location / {
         root   html;

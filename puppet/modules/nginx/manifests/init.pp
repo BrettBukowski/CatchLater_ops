@@ -15,7 +15,7 @@ class nginx {
       owner => root,
       group => root,
       mode => 755,
-      source => "puppet:///modules/nginx/"
+      source => "puppet:///modules/nginx/files/init-nginx.sh";
     "/usr/local/nginx/nginx.conf":
       owner => root,
       group => root,
