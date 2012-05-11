@@ -1,20 +1,12 @@
 server {
     listen      80;
-    server_name catchlater.com;
-    root /var/catchlater/current/public/
+    server_name catchlater.com www.catchlater.com;
+    if ($host = 'www.catchlater.com') {
+        rewrite ^/(.*)$ http://catchlater.com/$1 permanent;
+    }
+    root /var/catchlater/current/public;
 
     passenger_enabled on;
     passenger_use_global_queue on;
-    passenger_pool_idle_time 900;
     passenger_max_requests 10000;
-
-    location / {
-        root   html;
-        index  index.html index.htm;
-    }
-
-    error_page 	500 502 503 504  /50x.html;
-    location = /50x.html {
-        root   html;
-    }
 }
