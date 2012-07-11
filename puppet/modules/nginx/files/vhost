@@ -6,6 +6,10 @@ server {
     }
     root /var/catchlater/current/public;
 
+    location ~* \.(jpg|jpeg|gif|png|css|js|ico|html)$ {
+        expires max;
+    }
+
     passenger_enabled on;
     passenger_use_global_queue on;
     passenger_max_requests 10000;
